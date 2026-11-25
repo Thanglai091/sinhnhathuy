@@ -4,7 +4,7 @@ import * as THREE from './vendor/three/three.module.js';
   'use strict';
 
   const STORAGE_STARS = 'giahuy19_stars_v3';
-  const BIRTH_ISO = '2008-01-03T00:00:00+07:00';
+  const BIRTH_ISO = '2008-11-25T00:00:00+07:00';
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -79,7 +79,7 @@ import * as THREE from './vendor/three/three.module.js';
 
       this.tracks = [
         {
-          title: '01. Nocturne 03·01 (Rhodes Jazz)',
+          title: '01. Nocturne 25·11 (Rhodes Jazz)',
           desc: 'Giai điệu Happy Birthday biến tấu jazz êm dịu trên phím đàn điện ấm áp.',
           tempoMs: 740,
           wave: 'triangle',
@@ -521,23 +521,37 @@ import * as THREE from './vendor/three/three.module.js';
     const birthMs = new Date(BIRTH_ISO).getTime();
     const pad = (n) => String(n).padStart(2, '0');
 
+    function isBirthdayTodayVN(now) {
+      const vn = new Date(now.getTime() + 7 * 3600 * 1000);
+      return vn.getUTCMonth() === 10 && vn.getUTCDate() === 25;
+    }
+
     function nextBirthday(now) {
       const y = now.getFullYear();
-      let t = new Date(`${y}-01-03T00:00:00+07:00`);
-      if (now.getTime() >= t.getTime()) t = new Date(`${y + 1}-01-03T00:00:00+07:00`);
+      let t = new Date(`${y}-11-25T00:00:00+07:00`);
+      if (now.getTime() >= t.getTime()) t = new Date(`${y + 1}-11-25T00:00:00+07:00`);
       return t;
     }
 
     function update() {
       const now = new Date();
+      const isToday = isBirthdayTodayVN(now);
       let diffMs = 0;
       if (mode === 'lived') {
         diffMs = Math.max(0, now.getTime() - birthMs);
-        if (captionEl) captionEl.textContent = 'Tổng thời gian rực rỡ kể từ 03.01.2008';
+        if (captionEl) {
+          captionEl.textContent = isToday
+            ? '🎂 Hôm nay là Sinh Nhật 25.11 — Hành trình từ 25.11.2008'
+            : 'Tổng thời gian rực rỡ kể từ 25.11.2008';
+        }
       } else {
         const target = nextBirthday(now);
         diffMs = Math.max(0, target.getTime() - now.getTime());
-        if (captionEl) captionEl.textContent = `Hướng tới cột mốc 03.01.${target.getFullYear()}`;
+        if (captionEl) {
+          captionEl.textContent = isToday
+            ? `🎉 Chúc mừng sinh nhật 25.11 hôm nay! Kỳ tiếp: 25.11.${target.getFullYear()}`
+            : `Hướng tới cột mốc 25.11.${target.getFullYear()}`;
+        }
       }
 
       const sec = Math.floor(diffMs / 1000);
@@ -565,7 +579,7 @@ import * as THREE from './vendor/three/three.module.js';
   }
 
   /* =========================================================
-     3D TILT, SPOTLIGHTS & CAPRICORN ASTROLABE
+     3D TILT, SPOTLIGHTS & SAGITTARIUS ASTROLABE
   ========================================================= */
   function attachTilt(el, maxDeg = 9, prefix = '--sheen') {
     if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -593,22 +607,30 @@ import * as THREE from './vendor/three/three.module.js';
 
     const readout = $('#star-readout');
     const stars = $$('.star-node');
-    stars.forEach((node) => {
-      const activate = () => {
-        stars.forEach((s) => s.classList.remove('is-active'));
-        node.classList.add('is-active');
-        if (readout) {
-          readout.innerHTML = '';
-          const title = document.createElement('strong');
-          title.className = 'mono';
-          title.textContent = `${(node.dataset.star || '').toUpperCase()} • `;
-          const desc = document.createElement('span');
-          desc.textContent = node.dataset.desc || '';
-          readout.append(title, desc);
-        }
-      };
-      node.addEventListener('mouseenter', activate);
-      node.addEventListener('click', activate);
+    const pills = $$('.sgr-pill');
+
+    function activateIndex(idx) {
+      const node = stars[idx];
+      if (!node) return;
+      stars.forEach((s, i) => s.classList.toggle('is-active', i === idx));
+      pills.forEach((p, i) => p.classList.toggle('active', i === idx));
+      if (readout) {
+        readout.innerHTML = '';
+        const title = document.createElement('strong');
+        title.className = 'mono';
+        title.textContent = `${(node.dataset.star || '').toUpperCase()} • `;
+        const desc = document.createElement('span');
+        desc.textContent = node.dataset.desc || '';
+        readout.append(title, desc);
+      }
+    }
+
+    stars.forEach((node, idx) => {
+      node.addEventListener('mouseenter', () => activateIndex(idx));
+      node.addEventListener('click', () => activateIndex(idx));
+    });
+    pills.forEach((pill, idx) => {
+      pill.addEventListener('click', () => activateIndex(idx));
     });
   }
 
@@ -1608,12 +1630,12 @@ import * as THREE from './vendor/three/three.module.js';
 
       ctx.fillStyle = '#D6B372';
       ctx.font = '500 18px "JetBrains Mono", monospace';
-      ctx.fillText('MAISON 03·01  •  PASSEPORT CHAPITRE XIX', 92, 110);
+      ctx.fillText('MAISON 25·11  •  PASSEPORT CHAPITRE XIX', 92, 110);
 
       ctx.fillStyle = '#F3DEB5';
       ctx.font = '600 20px "JetBrains Mono", monospace';
       ctx.textAlign = 'right';
-      ctx.fillText('AGE 19+  |  MA KẾT', 1108, 110);
+      ctx.fillText('AGE 19+  |  NHÂN MÃ', 1108, 110);
       ctx.textAlign = 'left';
 
       const imgEl = $('#vip-portrait-img');
@@ -1660,7 +1682,7 @@ import * as THREE from './vendor/three/three.module.js';
 
       ctx.fillStyle = '#F6F1E7';
       ctx.font = '500 24px "JetBrains Mono", monospace';
-      ctx.fillText('03 . 01 . 2008', 436, 456);
+      ctx.fillText('25 . 11 . 2008', 436, 456);
       ctx.fillText('BUÔN MA THUỘT', 710, 456);
 
       ctx.strokeStyle = 'rgba(214, 179, 114, 0.25)';
@@ -1671,7 +1693,7 @@ import * as THREE from './vendor/three/three.module.js';
 
       ctx.fillStyle = '#D6B372';
       ctx.font = '400 17px "JetBrains Mono", monospace';
-      ctx.fillText('ID #GH-0301-19', 92, 616);
+      ctx.fillText('ID #GH-2511-19', 92, 616);
 
       ctx.textAlign = 'right';
       ctx.fillText('IG @ghuy_0301   •   TT @phanhgiahuy8', 1108, 616);
