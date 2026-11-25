@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080706" />
+  <title>GIA HUY &bull; CHAPITRE XIX (19+) — HAUTE ÉDITION 03·01</title>
+  <meta
+    name="description"
+    content="Ấn bản kỷ niệm sinh nhật tuổi 19+ dành riêng cho Gia Huy (03/01/2008) — Buôn Ma Thuột."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="is-locked">
+  <!-- Custom Magnetic Gold Cursor -->
+  <div id="luxury-cursor" class="luxury-cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring">
+      <span class="cursor-label mono"></span>
+    </div>
+  </div>
+
+  <!-- Top Hairline Scroll Progress -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Ambient & Celebration Canvases -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- =========================================================
+       ACT 0: HAUTE-JOAILLERIE TWIN-DOOR SPLIT COVER CURTAIN
+  ========================================================== -->
+  <div id="opening-curtain" class="curtain" role="dialog" aria-modal="true" aria-label="Bìa thiệp sinh nhật Gia Huy">
+    <div class="curtain-door curtain-door-left" aria-hidden="true">
+      <div class="door-guilloche"></div>
+      <div class="door-fluting"></div>
+    </div>
+    <div class="curtain-door curtain-door-right" aria-hidden="true">
+      <div class="door-guilloche"></div>
+      <div class="door-fluting"></div>
+    </div>
+    <div class="curtain-seam" aria-hidden="true"></div>
+
+    <svg class="curtain-filigree-svg" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="filigree-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FBF2DD" stop-opacity="0.7" />
+          <stop offset="50%" stop-color="#D6B372" stop-opacity="0.45" />
+          <stop offset="100%" stop-color="#8A6932" stop-opacity="0.65" />
+        </linearGradient>
+      </defs>
+      <rect x="28" y="28" width="1384" height="844" fill="none" stroke="url(#filigree-gold)" stroke-width="1" />
+      <rect x="42" y="42" width="1356" height="816" fill="none" stroke="rgba(214,179,114,0.22)" stroke-width="0.8" />
+      <path d="M28 96 L96 28 M28 72 L72 28 M1412 96 L1344 28 M1412 72 L1368 28 M28 804 L96 872 M28 828 L72 872 M1412 804 L1344 872 M1412 828 L1368 872" stroke="url(#filigree-gold)" stroke-width="1.2" fill="none" />
+      <circle cx="720" cy="28" r="5" fill="#D6B372" opacity="0.65" />
+      <circle cx="720" cy="872" r="5" fill="#D6B372" opacity="0.65" />
+    </svg>
+
+    <div class="curtain-centerpiece">
+      <div class="horology-dial" aria-hidden="true">
+        <svg viewBox="0 0 560 560" class="horology-svg">
+          <defs>
+            <linearGradient id="dial-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FBF2DD" stop-opacity="0.7" />
+              <stop offset="50%" stop-color="#D6B372" stop-opacity="0.35" />
+              <stop offset="100%" stop-color="#6B532C" stop-opacity="0.65" />
+            </linearGradient>
+            <path id="dial-orbit" d="M 280,280 m -246,0 a 246,246 0 1,1 492,0 a 246,246 0 1,1 -492,0" />
+          </defs>
+          <g class="dial-ring-outer">
+            <circle cx="280" cy="280" r="264" fill="none" stroke="url(#dial-gold)" stroke-width="1" stroke-dasharray="3 7" />
+            <circle cx="280" cy="280" r="230" fill="none" stroke="rgba(214,179,114,0.22)" stroke-width="1" />
+            <text class="dial-orbit-text">
+              <textPath href="#dial-orbit" startOffset="0%">
+                MAISON 03·01 &bull; HAUTE ÉDITION XIX &bull; GIA HUY &bull; 03 JANUARY 2008 &bull; BUÔN MA THUỘT &bull;
+              </textPath>
+            </text>
+          </g>
+          <g class="dial-ring-inner">
+            <circle cx="280" cy="280" r="196" fill="none" stroke="rgba(243,222,181,0.28)" stroke-width="1.2" stroke-dasharray="1 11" />
+            <polygon points="280,68 285,80 280,84 275,80" fill="#F3DEB5" opacity="0.75" />
+            <polygon points="280,492 285,480 280,476 275,480" fill="#F3DEB5" opacity="0.75" />
+            <polygon points="68,280 80,275 84,280 80,285" fill="#F3DEB5" opacity="0.75" />
+            <polygon points="492,280 480,275 476,280 480,285" fill="#F3DEB5" opacity="0.75" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="curtain-card-inner">
+        <div class="curtain-cameo">
+          <img src="assets/giahuy-closeup.jpg" alt="Gia Huy" width="120" height="144" />
+        </div>
+
+        <p class="eyebrow mono">MAISON 03·01 &bull; HAUTE ÉDITION XIX</p>
+        <h1 class="curtain-title">
+          <span class="serif-italic">Ấn bản kỷ niệm tuổi 19+</span>
+          <span class="curtain-name">Gia Huy</span>
+        </h1>
+        <p class="curtain-meta mono">03 &middot; 01 &middot; 2008 &nbsp;&diams;&nbsp; BUÔN MA THUỘT</p>
+
+        <button
+          id="open-invitation-btn"
+          class="wax-seal-btn"
+          type="button"
+          data-cursor="MỞ"
+          aria-label="Chạm dấu ấn vàng để mở cánh cửa thiệp sinh nhật Gia Huy"
+        >
+          <span class="wax-halo"></span>
+          <span class="wax-ring"></span>
+          <span class="wax-bevel"></span>
+          <span class="wax-core">
+            <span class="wax-monogram">XIX</span>
+            <span class="wax-sub mono">03 &middot; 01</span>
+          </span>
+        </button>
+
+        <p class="curtain-hint">Chạm vào huy chương vàng để mở cánh cửa</p>
+
+        <label class="audio-opt-in">
+          <input type="checkbox" id="enter-with-audio" checked />
+          <span class="custom-check" aria-hidden="true"></span>
+          <span>Mở kèm âm thanh piano Rhodes &amp; không gian nhạc</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       FLOATING GLASS NAVIGATION
+  ========================================================== -->
+  <header class="nav-shell">
+    <nav id="main-nav" class="floating-nav" aria-label="Điều hướng chính">
+      <a href="#hero" class="nav-brand">
+        <span class="brand-crest">GH</span>
+        <span class="brand-code mono">03·01</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active">Khởi Đầu</a></li>
+        <li><a href="#profile" class="nav-link">Bản Sắc</a></li>
+        <li><a href="#soundstage" class="nav-link">Âm Nhạc</a></li>
+        <li><a href="#cake-ritual" class="nav-link">Bánh Kem 3D</a></li>
+        <li><a href="#gift-vault" class="nav-link">Hộp Quà</a></li>
+        <li><a href="#letter" class="nav-link">Lá Thư</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="audio-toggle" class="icon-pill-btn" type="button" aria-label="Bật hoặc tắt nhạc nền" aria-pressed="false">
+          <span class="eq-bars" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="btn-label">Âm Thanh</span>
+        </button>
+
+        <button id="fireworks-trigger" class="gold-pill-btn" type="button" data-cursor="BẮN">
+          <span class="spark-dot" aria-hidden="true"></span>
+          <span>Pháo Hoa</span>
+        </button>
+
+        <button id="mobile-menu-btn" class="mobile-menu-btn" type="button" aria-label="Mở menu điều hướng" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-nav-drawer" class="mobile-drawer" hidden>
+      <a href="#hero" class="mobile-nav-link">Khởi Đầu</a>
+      <a href="#profile" class="mobile-nav-link">Bản Sắc</a>
+      <a href="#soundstage" class="mobile-nav-link">Âm Nhạc</a>
+      <a href="#cake-ritual" class="mobile-nav-link">Bánh Kem 3D</a>
+      <a href="#gift-vault" class="mobile-nav-link">Hộp Quà</a>
+      <a href="#letter" class="mobile-nav-link">Lá Thư</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- =========================================================
+         ACT 1: CINEMATIC EDITORIAL HERO + GOLD MARQUEE
+    ========================================================== -->
+    <section id="hero" class="hero-section container">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <div class="edition-pill mono">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            HAUTE ÉDITION N°19 &bull; 03.01.2008 &bull; MA KẾT
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-kicker">Chúc Mừng Sinh Nhật</span>
+            <span class="title-name">Gia Huy</span>
+          </h1>
+
+          <p class="hero-lead">
+            Một cột mốc mới ở ngưỡng <strong>19+</strong> — mang khí chất trầm ổn, chỉn chu và đầy phóng khoáng giữa cao nguyên
+            <strong>Buôn Ma Thuột</strong>. Chúc Huy bước sang chương thứ 19 với tâm thế vững vàng, bản lĩnh và rực rỡ nhất.
+          </p>
+
+          <div class="time-console" aria-label="Đồng hồ thời gian hành trình tuổi 19">
+            <div class="time-console-head">
+              <div class="time-tabs" role="tablist" aria-label="Chế độ đếm thời gian">
+                <button id="mode-lived" class="time-tab active" type="button" role="tab" aria-selected="true">
+                  Hành trình từ 03.01.2008
+                </button>
+                <button id="mode-countdown" class="time-tab" type="button" role="tab" aria-selected="false">
+                  Đếm ngược tới 03/01
+                </button>
+              </div>
+              <span id="time-caption" class="mono time-caption">Đang cập nhật từng nhịp giây</span>
+            </div>
+
+            <div class="time-metrics">
+              <div class="metric-cell">
+                <span id="time-days" class="metric-val mono">0</span>
+                <span class="metric-unit">Ngày</span>
+              </div>
+              <div class="metric-sep" aria-hidden="true">:</div>
+              <div class="metric-cell">
+                <span id="time-hours" class="metric-val mono">00</span>
+                <span class="metric-unit">Giờ</span>
+              </div>
+              <div class="metric-sep" aria-hidden="true">:</div>
+              <div class="metric-cell">
+                <span id="time-minutes" class="metric-val mono">00</span>
+                <span class="metric-unit">Phút</span>
+              </div>
+              <div class="metric-sep" aria-hidden="true">:</div>
+              <div class="metric-cell">
+                <span id="time-seconds" class="metric-val mono">00</span>
+                <span class="metric-unit">Giây</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <a href="#cake-ritual" class="btn-luxury-primary" data-cursor="3D">
+              <span>Bánh Kem 3D &amp; Thổi Nến</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8H13M13 8L8.8 3.8M13 8L8.8 12.2" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#letter" class="btn-luxury-ghost" data-cursor="THƯ">
+              <span>Đọc Thư Minh Thắng</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="120">
+          <div id="hero-tilt-card" class="portrait-stage" data-cursor="XEM">
+            <div class="portrait-godrays" aria-hidden="true"></div>
+
+            <div class="orbital-seal" aria-hidden="true">
+              <svg viewBox="0 0 240 240" class="orbital-svg">
+                <defs>
+                  <path id="orbit-path" d="M 120, 120 m -92, 0 a 92,92 0 1,1 184,0 a 92,92 0 1,1 -184,0" />
+                </defs>
+                <text class="orbital-text">
+                  <textPath href="#orbit-path" startOffset="0%">
+                    GIA HUY &bull; 03 JANUARY 2008 &bull; CHAPITRE XIX &bull; BUON MA THUOT &bull;
+                  </textPath>
+                </text>
+              </svg>
+            </div>
+
+            <div class="portrait-arch-outer">
+              <div class="portrait-arch-inner">
+                <img
+                  id="hero-portrait-img"
+                  src="assets/giahuy-portrait.jpg"
+                  alt="Chân dung Gia Huy"
+                  width="808"
+                  height="960"
+                  loading="eager"
+                />
+                <div class="portrait-vignette" aria-hidden="true"></div>
+                <div class="portrait-sheen" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <div class="floating-badge-age">
+              <span class="badge-num">19+</span>
+              <span class="badge-label mono">CHAPTER XIX</span>
+            </div>
+
+            <div class="floating-badge-route mono">
+              BUÔN MA THUỘT &bull; 536M
+            </div>
+
+            <div class="floating-badge-coords mono">
+              <span class="coord-dot" aria-hidden="true"></span>
+              12°40'N &middot; 108°02'E
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Infinite Luxury Editorial Marquee -->
+    <div class="marquee-band" aria-hidden="true">
+      <div class="marquee-track mono">
+        <span>GIA HUY &bull; 03.01.2008 &bull; CHAPITRE XIX &bull; BUÔN MA THUỘT &bull; CAO NGUYÊN ĐẮK LẮK &bull; MA KẾT &bull; EDITION 19+ &bull;</span>
+        <span>GIA HUY &bull; 03.01.2008 &bull; CHAPITRE XIX &bull; BUÔN MA THUỘT &bull; CAO NGUYÊN ĐẮK LẮK &bull; MA KẾT &bull; EDITION 19+ &bull;</span>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         ACT 2: REDESIGNED HOROLOGICAL DOSSIER ("HỒ SƠ BẢN SẮC")
+    ========================================================== -->
+    <section id="profile" class="section container">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">02 &mdash; HOROLOGICAL DOSSIER</span>
+        <h2 class="section-title">Hồ Sơ Bản Sắc <span class="serif-italic gold-text">Gia Huy</span></h2>
+        <p class="section-sub">Tọa độ cao nguyên, bản đồ sao Ma Kết và bảng khắc thông số dành riêng cho ấn bản tuổi 19+.</p>
+      </div>
+
+      <div class="dossier-grid">
+        <!-- Panel A: Buôn Ma Thuột Highland Topographic Monolith (7 cols) -->
+        <article class="dossier-card dossier-span-7 reveal" data-spotlight>
+          <div class="dossier-head">
+            <span class="card-kicker mono">HIGHLAND COORDINATES &bull; ĐẮK LẮK</span>
+            <span class="card-chip mono">ALT 536M</span>
+          </div>
+
+          <div class="topo-layout">
+            <div class="topo-copy">
+              <h3 class="dossier-title">Nhịp Sống <span class="serif-italic gold-text">Buôn Ma Thuột</span></h3>
+              <p class="card-desc">
+                Giữa độ cao 536 mét của phố núi cao nguyên, nơi nắng gió và hương cà phê bazan tạo nên nhịp điệu riêng — Gia Huy lớn lên với phong thái điềm đạm, sâu sắc nhưng luôn giữ ngọn lửa nhiệt huyết bền bỉ bên trong.
+              </p>
+              <div class="topo-stats">
+                <div>
+                  <span class="mono stat-lbl">LATITUDE</span>
+                  <strong class="mono stat-val">12°40'N</strong>
+                </div>
+                <div>
+                  <span class="mono stat-lbl">LONGITUDE</span>
+                  <strong class="mono stat-val">108°02'E</strong>
+                </div>
+                <div>
+                  <span class="mono stat-lbl">ORIGIN</span>
+                  <strong class="mono stat-val">BAN MÊ</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="topo-radar" aria-hidden="true">
+              <svg viewBox="0 0 280 280" class="topo-svg">
+                <defs>
+                  <radialGradient id="topo-glow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#D6B372" stop-opacity="0.28" />
+                    <stop offset="100%" stop-color="#D6B372" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+                <circle cx="140" cy="140" r="126" fill="url(#topo-glow)" />
+                <!-- Organic topographic contour rings -->
+                <path d="M140,26 C204,26 254,74 252,138 C250,204 198,252 136,252 C74,252 28,200 30,136 C32,74 78,26 140,26 Z" fill="none" stroke="rgba(214,179,114,0.22)" stroke-width="1" />
+                <path d="M142,48 C192,50 232,88 228,140 C224,192 184,228 134,226 C84,224 52,184 54,136 C56,88 94,46 142,48 Z" fill="none" stroke="rgba(214,179,114,0.34)" stroke-width="1" stroke-dasharray="4 5" />
+                <path d="M140,76 C176,76 204,104 202,140 C200,176 170,202 136,200 C102,198 78,172 80,138 C82,104 106,76 140,76 Z" fill="none" stroke="rgba(243,222,181,0.42)" stroke-width="1" />
+                <circle cx="140" cy="140" r="38" fill="none" stroke="rgba(214,179,114,0.3)" stroke-width="0.9" />
+                <line x1="140" y1="10" x2="140" y2="270" stroke="rgba(214,179,114,0.16)" stroke-width="0.8" />
+                <line x1="10" y1="140" x2="270" y2="140" stroke="rgba(214,179,114,0.16)" stroke-width="0.8" />
+                <text x="140" y="20" text-anchor="middle" class="compass-txt">N</text>
+                <text x="264" y="144" text-anchor="middle" class="compass-txt">E</text>
+                <text x="140" y="272" text-anchor="middle" class="compass-txt">S</text>
+                <text x="16" y="144" text-anchor="middle" class="compass-txt">W</text>
+                <!-- Pulsing BMT beacon -->
+                <circle cx="140" cy="140" r="14" fill="none" stroke="#F3DEB5" stroke-width="1.2" class="beacon-pulse" />
+                <circle cx="140" cy="140" r="5" fill="#FBF2DD" />
+              </svg>
+            </div>
+          </div>
+        </article>
+
+        <!-- Panel B: Celestial Capricorn Astrolabe (5 cols) -->
+        <article class="dossier-card dossier-span-5 reveal" data-delay="70" data-spotlight>
+          <div class="dossier-head">
+            <span class="card-kicker mono">CELESTIAL ASTROLABE</span>
+            <span class="card-chip mono">♑ MA KẾT</span>
+          </div>
+
+          <div class="astrolabe-wrap">
+            <svg viewBox="0 0 260 190" class="astrolabe-svg" aria-label="Bản đồ sao Ma Kết tương tác">
+              <circle cx="130" cy="95" r="82" fill="none" stroke="rgba(214,179,114,0.22)" stroke-width="1" stroke-dasharray="2 6" />
+              <circle cx="130" cy="95" r="64" fill="none" stroke="rgba(214,179,114,0.14)" stroke-width="1" />
+              <polyline
+                points="48,66 90,82 132,70 176,56 212,68 190,114 142,138 94,116 48,66"
+                fill="none"
+                stroke="rgba(214,179,114,0.44)"
+                stroke-width="1.3"
+              />
+              <line x1="90" y1="82" x2="94" y2="116" stroke="rgba(214,179,114,0.24)" stroke-width="1" />
+              <line x1="132" y1="70" x2="142" y2="138" stroke="rgba(214,179,114,0.24)" stroke-width="1" />
+              <circle class="star-node is-active" cx="48" cy="66" r="5.2" data-star="Algedi" data-desc="Điềm tĩnh &amp; vững vàng trước mọi biến động" />
+              <circle class="star-node" cx="90" cy="82" r="4.6" data-star="Dabih" data-desc="Chiều sâu nội tâm &amp; tinh tế trong từng chi tiết" />
+              <circle class="star-node" cx="132" cy="70" r="4.8" data-star="Nashira" data-desc="Bản lĩnh thực tế — đã nói là làm tới cùng" />
+              <circle class="star-node" cx="176" cy="56" r="4.6" data-star="Deneb" data-desc="Khí chất chững chạc vượt trước tuổi 19" />
+              <circle class="star-node" cx="212" cy="68" r="5" data-star="Omega" data-desc="Chân thành &amp; hết lòng với những người tin cậy" />
+              <circle class="star-node" cx="142" cy="138" r="5.4" data-star="Psi Cap" data-desc="Tham vọng lớn nhưng luôn giữ phong thái điềm đạm" />
+            </svg>
+          </div>
+
+          <div id="star-readout" class="star-readout">
+            <strong class="mono">ALGEDI &bull;</strong>
+            <span>Điềm tĩnh &amp; vững vàng trước mọi biến động</span>
+          </div>
+        </article>
+
+        <!-- Panel C: Sculpted 19+ Atelier Monolith (5 cols) -->
+        <article class="dossier-card dossier-span-5 dossier-monolith reveal" data-delay="120" data-spotlight>
+          <div class="monolith-inset">
+            <div class="dossier-head">
+              <span class="card-kicker mono">ATELIER MILESTONE</span>
+              <span class="card-chip mono">CHAPITRE XIX</span>
+            </div>
+            <div class="milestone-num-wrap">
+              <span id="milestone-num" class="milestone-num" data-target="19">19</span><span class="milestone-plus">+</span>
+            </div>
+            <p class="card-desc">
+              Ngưỡng cửa 19+ — đủ chín chắn để chọn lọc những giá trị thật sự xứng đáng, đủ sức bật để vươn tới mọi chân trời mới.
+            </p>
+          </div>
+        </article>
+
+        <!-- Panel D: Swiss Chronograph Specification Ledger (7 cols) -->
+        <article class="dossier-card dossier-span-7 reveal" data-delay="170" data-spotlight>
+          <div class="dossier-head">
+            <span class="card-kicker mono">CHRONOGRAPH SPECIFICATION</span>
+            <span class="card-chip mono">REF. GH-0301</span>
+          </div>
+
+          <dl class="spec-ledger">
+            <div class="spec-row">
+              <dt class="mono">DANH XƯNG</dt>
+              <dd>Gia Huy</dd>
+            </div>
+            <div class="spec-row">
+              <dt class="mono">NGÀY SINH</dt>
+              <dd class="mono">03 &middot; 01 &middot; 2008</dd>
+            </div>
+            <div class="spec-row">
+              <dt class="mono">CUNG HOÀNG ĐẠO</dt>
+              <dd>Ma Kết (Capricorn)</dd>
+            </div>
+            <div class="spec-row">
+              <dt class="mono">TỌA ĐỘ HIỆN TẠI</dt>
+              <dd>Buôn Ma Thuột, Đắk Lắk</dd>
+            </div>
+            <div class="spec-row">
+              <dt class="mono">KẾT NỐI</dt>
+              <dd class="mono">3K+ Bạn Bè &bull; @ghuy_0301 &bull; @phanhgiahuy8</dd>
+            </div>
+            <div class="spec-row">
+              <dt class="mono">BỐN TRỤ CỘT XIX</dt>
+              <dd>Sức Khỏe &middot; Bản Lĩnh &middot; Trải Nghiệm &middot; Rực Rỡ</dd>
+            </div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT 3: SPINNING VINYL TURNTABLE & SPECTRUM VISUALIZER
+    ========================================================== -->
+    <section id="soundstage" class="section container">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">03 &mdash; SONIC LOUNGE</span>
+        <h2 class="section-title">Đĩa Than &amp; <span class="serif-italic gold-text">Giai Điệu 03·01</span></h2>
+        <p class="section-sub">Chọn một bản hòa âm tổng hợp thời gian thực và quan sát dải tần số ánh kim chuyển động theo từng nốt nhạc.</p>
+      </div>
+
+      <div class="soundstage-card reveal">
+        <div class="turntable-wrap">
+          <div id="vinyl-platter" class="vinyl-platter" aria-hidden="true">
+            <div class="vinyl-disc">
+              <div class="vinyl-grooves"></div>
+              <div class="vinyl-sheen"></div>
+              <div class="vinyl-label">
+                <span class="mono label-top">MAISON 03·01</span>
+                <strong class="label-center">GH · XIX</strong>
+                <span class="mono label-bot">33⅓ RPM</span>
+              </div>
+              <div class="vinyl-spindle"></div>
+            </div>
+            <div id="tonearm" class="tonearm">
+              <div class="tonearm-base"></div>
+              <div class="tonearm-rod"></div>
+              <div class="tonearm-head"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sound-console">
+          <div class="sound-now-playing">
+            <span class="mono np-tag">NOW SPINNING</span>
+            <h3 id="track-title" class="np-title">01. Nocturne 03·01 (Rhodes Jazz)</h3>
+            <p id="track-desc" class="np-desc">Giai điệu Happy Birthday biến tấu jazz êm dịu trên phím đàn điện ấm áp.</p>
+          </div>
+
+          <canvas id="audio-visualizer" width="520" height="96" aria-label="Bộ hiển thị phổ âm thanh vàng kim"></canvas>
+
+          <div class="track-list" role="radiogroup" aria-label="Chọn bản nhạc nền">
+            <button class="track-pill active" type="button" data-track="0">
+              <span class="mono">01</span> Nocturne 03·01
+            </button>
+            <button class="track-pill" type="button" data-track="1">
+              <span class="mono">02</span> Chiều Cao Nguyên
+            </button>
+            <button class="track-pill" type="button" data-track="2">
+              <span class="mono">03</span> Ánh Sao Ban Mê
+            </button>
+          </div>
+
+          <div class="sound-controls">
+            <button id="turntable-play-btn" class="btn-luxury-primary" type="button" data-cursor="PHÁT">
+              <span>Phát Nhạc Trên Đĩa Than</span>
+            </button>
+
+            <label class="volume-control">
+              <span class="mono">VOL</span>
+              <input id="volume-slider" type="range" min="0" max="100" value="65" aria-label="Âm lượng nhạc nền" />
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT 4: REAL-TIME INTERACTIVE 3D WEBGL CAKE (THREE.JS)
+    ========================================================== -->
+    <section id="cake-ritual" class="section container">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">04 &mdash; INTERACTIVE 3D PÂTISSERIE</span>
+        <h2 class="section-title">Bánh Kem 3D &amp; <span class="serif-italic gold-text">Nghi Thức Tuổi 19</span></h2>
+        <p class="section-sub">
+          Dựng hoàn toàn bằng WebGL 3D thời gian thực: kéo xoay 360°, chạm trực tiếp lên từng ngọn nến 3D để thổi tắt hoặc thổi qua micro.
+        </p>
+      </div>
+
+      <div class="cake-stage-card reveal">
+        <div class="cake-status-bar">
+          <span id="candles-status" class="status-pill mono">5 / 5 ngọn nến 3D đang cháy</span>
+
+          <div class="mic-meter-wrap" id="mic-meter-wrap" hidden>
+            <span class="mono">LỰC THỔI</span>
+            <div class="mic-meter-track">
+              <div id="mic-meter-fill" class="mic-meter-fill"></div>
+            </div>
+          </div>
+
+          <div class="cam-presets" role="group" aria-label="Góc nhìn camera 3D">
+            <button id="cam-overview" class="cam-pill active" type="button">Toàn Cảnh</button>
+            <button id="cam-closeup" class="cam-pill" type="button">Cận Nến 19</button>
+            <button id="cam-spin" class="cam-pill active" type="button" aria-pressed="true">Tự Xoay 360°</button>
+          </div>
+        </div>
+
+        <div class="cake-3d-viewport" id="cake-3d-viewport">
+          <canvas id="cake-3d-canvas" aria-label="Bánh sinh nhật 3D tương tác"></canvas>
+          <div class="viewport-hint mono">Kéo xoay 360° &bull; Chạm vào nến để thổi</div>
+        </div>
+
+        <div class="cake-controls">
+          <button id="blow-all-btn" class="btn-luxury-primary" type="button" data-cursor="THỔI">
+            <span>Thổi Tất Cả Nến</span>
+          </button>
+
+          <button id="sparkler-toggle-btn" class="btn-luxury-ghost" type="button" aria-pressed="true">
+            <span>Pháo Bông 3D: Đang Cháy</span>
+          </button>
+
+          <button id="mic-blow-btn" class="btn-luxury-ghost" type="button" aria-pressed="false">
+            <span>Thổi Bằng Micro</span>
+          </button>
+
+          <button id="relight-btn" class="btn-luxury-ghost" type="button" hidden>
+            <span>Thắp Lại Nến</span>
+          </button>
+        </div>
+
+        <div id="wish-revealed" class="wish-revealed" hidden>
+          <p class="eyebrow mono">WISH LAUNCHED &bull; CHAPITRE XIX</p>
+          <h3>Điều ước tuổi 19 của Gia Huy đã chạm tới bầu trời</h3>
+          <p>
+            Mong mọi dự định ở tuổi 19+ đều chín muồi rực rỡ, sức khỏe dồi dào, tâm trí an nhiên và luôn giữ vững phong độ đỉnh cao.
+          </p>
+          <button id="champagne-pop-btn" class="btn-luxury-primary" type="button" data-cursor="KHUI">
+            <span>Khui Champagne Chúc Mừng</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT 5: THE LUXURY GIFT VAULT (3D UNBOXING)
+    ========================================================== -->
+    <section id="gift-vault" class="section container">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">05 &mdash; ATELIER GIFT VAULT</span>
+        <h2 class="section-title">Ba Chiếc Hộp <span class="serif-italic gold-text">Dành Riêng Cho Huy</span></h2>
+        <p class="section-sub">Chạm vào từng hộp quà sơn mài đen–vàng kim để mở nắp 3D và nhận thông điệp đặc quyền cho tuổi 19.</p>
+      </div>
+
+      <div class="gift-grid">
+        <article class="gift-box reveal" data-gift="0" tabindex="0" role="button" aria-expanded="false" data-cursor="KHUI">
+          <div class="gift-beam" aria-hidden="true"></div>
+          <div class="gift-lid">
+            <span class="ribbon-bow"></span>
+            <span class="mono gift-code">COFFRET 01</span>
+          </div>
+          <div class="gift-base">
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-front-label">
+              <span class="mono">CHƯƠNG I</span>
+              <h3>Hộp Khí Chất</h3>
+              <span class="gift-tap mono">CHẠM ĐỂ MỞ NẮP</span>
+            </div>
+            <div class="gift-reveal-content" hidden>
+              <span class="gift-emblem">&#9813;</span>
+              <h4>Bản Lĩnh Độc Bản</h4>
+              <p>Giữa thế giới vội vã, giữ được sự bình tĩnh và phong thái riêng như Huy là thứ tài sản quý giá nhất ở tuổi 19+.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="gift-box reveal" data-delay="90" data-gift="1" tabindex="0" role="button" aria-expanded="false" data-cursor="KHUI">
+          <div class="gift-beam" aria-hidden="true"></div>
+          <div class="gift-lid">
+            <span class="ribbon-bow"></span>
+            <span class="mono gift-code">COFFRET 02</span>
+          </div>
+          <div class="gift-base">
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-front-label">
+              <span class="mono">CHƯƠNG II</span>
+              <h3>Hộp Hành Trình</h3>
+              <span class="gift-tap mono">CHẠM ĐỂ MỞ NẮP</span>
+            </div>
+            <div class="gift-reveal-content" hidden>
+              <span class="gift-emblem">&#10022;</span>
+              <h4>Chân Trời Ban Mê</h4>
+              <p>Từ những buổi chiều cao nguyên Buôn Ma Thuột đến mọi vùng đất mới sắp đi qua — chúc Huy luôn có những người bạn đồng hành tin cậy.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="gift-box reveal" data-delay="180" data-gift="2" tabindex="0" role="button" aria-expanded="false" data-cursor="KHUI">
+          <div class="gift-beam" aria-hidden="true"></div>
+          <div class="gift-lid">
+            <span class="ribbon-bow"></span>
+            <span class="mono gift-code">COFFRET 03</span>
+          </div>
+          <div class="gift-base">
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-front-label">
+              <span class="mono">CHƯƠNG III</span>
+              <h3>Hộp Chân Trời</h3>
+              <span class="gift-tap mono">CHẠM ĐỂ MỞ NẮP</span>
+            </div>
+            <div class="gift-reveal-content" hidden>
+              <span class="gift-emblem">&#9733;</span>
+              <h4>Đỉnh Cao Mới</h4>
+              <p>Chúc mọi kế hoạch trong năm mới của Huy đều chạm đích ngoạn mục, mọi nỗ lực đều hóa thành quả ngọt xứng đáng.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div id="vault-complete-banner" class="vault-banner" hidden>
+        <span class="mono">ALL 3 COFFRETS UNLOCKED</span>
+        <strong>Cả ba đặc quyền tuổi 19+ đã được kích hoạt trọn vẹn cho Gia Huy!</strong>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT 6: 3D FOLDING WAX-SEALED LETTER FROM MINH THẮNG
+    ========================================================== -->
+    <section id="letter" class="section container">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">06 &mdash; CORRESPONDENCE</span>
+        <h2 class="section-title">Lá Thư Từ <span class="serif-italic gold-text">Minh Thắng</span></h2>
+      </div>
+
+      <div id="letter-folio" class="envelope-stage reveal" data-open="false">
+        <div class="envelope-wrapper">
+          <div class="envelope-back"></div>
+          <div class="envelope-flap" id="envelope-flap"></div>
+          <div class="envelope-pocket">
+            <span class="mono pocket-stamp">PRIVATE DISPATCH &bull; FROM MINH THẮNG TO GIA HUY</span>
+            <button id="unseal-letter-btn" class="envelope-wax-seal" type="button" data-cursor="MỞ THƯ">
+              <span>Mở Thư</span>
+            </button>
+          </div>
+        </div>
+
+        <article id="letter-body" class="letter-paper" hidden>
+          <div class="letter-paper-head">
+            <span class="mono">BUÔN MA THUỘT &bull; 03 · 01</span>
+            <span class="mono">TỪ MINH THẮNG</span>
+          </div>
+
+          <p class="letter-salutation">Gia Huy thân mến,</p>
+
+          <p>
+            Chúc mừng sinh nhật tuổi 19+ của Huy! Bước qua cột mốc 03/01 năm nay, mọi thứ phía trước sẽ mở ra nhiều lựa chọn và thử thách mới mẻ hơn, nhưng mình luôn tin vào sự điềm tĩnh và bản lĩnh của một người bạn Ma Kết như Huy.
+          </p>
+
+          <p>
+            Ở giữa cao nguyên Buôn Ma Thuột này, chúc Huy luôn giữ được năng lượng tích cực, sức khỏe dồi dào, học tập và làm điều mình thích thật suôn sẻ, và luôn có những người anh em chí cốt đồng hành bên cạnh.
+          </p>
+
+          <p>
+            Mong tuổi 19 sẽ mang đến cho Huy thật nhiều kỷ niệm đáng nhớ, nhiều bước tiến tự hào và lúc nào cũng giữ được phong độ chỉn chu, chất riêng như hiện tại nhé.
+          </p>
+
+          <p class="letter-signoff">
+            Chúc sinh nhật tuổi 19 thật trọn vẹn và đáng nhớ,<br />
+            <span class="serif-italic signature-line">Minh Thắng</span>
+          </p>
+
+          <div class="letter-actions">
+            <button id="send-star-btn" class="btn-luxury-primary" type="button" data-cursor="TẶNG SAO">
+              <span>Gửi Ngôi Sao Chúc Mừng</span>
+            </button>
+            <div class="star-counter mono">
+              <span class="star-icon" aria-hidden="true">&#10022;</span>
+              <span id="star-count">19</span> ngôi sao đã được gửi tặng Huy
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ACT 7: COLLECTIBLE HOLOGRAPHIC VIP PASS & FOOTER
+    ========================================================== -->
+    <section id="keepsake" class="section container">
+      <div class="section-header reveal">
+        <span class="eyebrow mono">07 &mdash; COLLECTIBLE KEEPSAKE</span>
+        <h2 class="section-title">Thẻ Kỷ Niệm <span class="serif-italic gold-text">Chapitre XIX</span></h2>
+        <p class="section-sub">Di chuột lên thẻ để xem hiệu ứng ánh kim 3D, hoặc tải ảnh PNG 1200&times;700 về máy.</p>
+      </div>
+
+      <div class="keepsake-layout reveal">
+        <div id="vip-pass-card" class="vip-pass" tabindex="0" data-cursor="3D">
+          <div class="vip-pass-holo" aria-hidden="true"></div>
+          <div class="vip-pass-top">
+            <div>
+              <span class="mono vip-brand">MAISON 03·01</span>
+              <span class="vip-edition">PASSEPORT CHAPITRE XIX</span>
+            </div>
+            <span class="vip-chip mono">AGE 19+</span>
+          </div>
+
+          <div class="vip-pass-body">
+            <div class="vip-thumb">
+              <img id="vip-portrait-img" src="assets/giahuy-closeup.jpg" alt="Ảnh thẻ Gia Huy" width="120" height="144" />
+            </div>
+            <div class="vip-info">
+              <span class="mono vip-label">HOLDER</span>
+              <strong class="vip-name">GIA HUY</strong>
+              <div class="vip-meta-grid">
+                <div>
+                  <span class="mono vip-label">BIRTHDAY</span>
+                  <span class="mono vip-val">03.01.2008</span>
+                </div>
+                <div>
+                  <span class="mono vip-label">CITY</span>
+                  <span class="mono vip-val">BUÔN MA THUỘT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vip-pass-foot mono">
+            <span>ID #GH-0301-19</span>
+            <span>@ghuy_0301 &bull; @phanhgiahuy8</span>
+          </div>
+        </div>
+
+        <div class="keepsake-actions">
+          <button id="download-pass-btn" class="btn-luxury-primary" type="button" data-cursor="TẢI">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 2.5V10.5M8 10.5L4.5 7M8 10.5L11.5 7M3 13.5H13" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Tải Thẻ Kỷ Niệm (PNG)</span>
+          </button>
+          <p class="keepsake-note mono">1200 &times; 700 PX &bull; HIGH-RES EDITION CARD</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">GIA HUY <span class="serif-italic gold-text">&bull; 03·01</span></div>
+        <p class="footer-tag">Chế tác riêng cho sinh nhật tuổi 19+ &mdash; Buôn Ma Thuột.</p>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/ghuy_0301/" target="_blank" rel="noopener noreferrer" class="social-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor"/>
+          </svg>
+          <span>Instagram &middot; @ghuy_0301</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@phanhgiahuy8" target="_blank" rel="noopener noreferrer" class="social-pill">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14 4V15.2C14 17.3 12.3 19 10.2 19C8.1 19 6.4 17.3 6.4 15.2C6.4 13.1 8.1 11.4 10.2 11.4C10.7 11.4 11.1 11.5 11.5 11.6V8.4C11.1 8.3 10.6 8.3 10.2 8.3C6.4 8.3 3.3 11.4 3.3 15.2C3.3 19 6.4 22 10.2 22C14 22 17.1 18.9 17.1 15.1V9.4C18.4 10.3 20 10.9 21.7 10.9V7.8C19.2 7.8 17.1 6.1 16.6 4H14Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+          <span>TikTok &middot; @phanhgiahuy8</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom mono">
+      <span>MAISON 03·01 &bull; HAUTE ÉDITION XIX</span>
+      <span>HAPPY 19TH BIRTHDAY, GIA HUY</span>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
