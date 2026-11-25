@@ -390,231 +390,422 @@
     </div>
 
     <!-- =========================================================
-         ACT 2: REDESIGNED HOROLOGICAL DOSSIER ("HỒ SƠ BẢN SẮC")
+         ACT 2: GRANDE COMPLICATION & CELESTIAL OBSERVATORY ("HỒ SƠ BẢN SẮC")
     ========================================================== -->
     <section id="profile" class="section container">
-      <div class="section-header reveal">
-        <span class="eyebrow mono">02 &mdash; HOROLOGICAL DOSSIER</span>
-        <h2 class="section-title">Hồ Sơ Bản Sắc <span class="serif-italic gold-text">Gia Huy</span></h2>
-        <p class="section-sub">Tọa độ cao nguyên, bản đồ chòm sao Nhân Mã và bảng khắc thông số dành riêng cho ấn bản tuổi 19+.</p>
+      <div class="profile-header-bar reveal">
+        <div class="section-header profile-header-copy">
+          <span class="eyebrow mono">02 &mdash; GRANDE COMPLICATION &amp; IDENTITÉ</span>
+          <h2 class="section-title">Hồ Sơ Bản Sắc <span class="serif-italic gold-text">Gia Huy</span></h2>
+          <p class="section-sub">Đài thiên văn chòm sao Nhân Mã 25·11, địa hình cao nguyên Buôn Ma Thuột và bảng khắc chế tác độc bản tuổi 19+.</p>
+        </div>
+
+        <div class="caliber-badge mono" aria-label="Thông số bộ máy chế tác">
+          <span class="caliber-wheel" aria-hidden="true"></span>
+          <div>
+            <strong>CALIBRE GH-2511</strong>
+            <span>PIÈCE UNIQUE &bull; N° 01/01</span>
+          </div>
+        </div>
       </div>
 
-      <div class="dossier-grid">
-        <!-- Panel A: Buôn Ma Thuột Highland Topographic Monolith (7 cols) -->
-        <article class="dossier-card dossier-span-7 reveal" data-spotlight>
-          <div class="dossier-head">
-            <span class="card-kicker mono">HIGHLAND COORDINATES &bull; ĐẮK LẮK</span>
-            <span class="card-chip mono">ALT 536M</span>
+      <!-- MASTERPIECE ROW: CELESTIAL PLANISPHERE & SAGITTARIUS OBSERVATORY -->
+      <article class="observatory-monolith reveal" data-spotlight>
+        <span class="watch-screw tl" aria-hidden="true"></span>
+        <span class="watch-screw tr" aria-hidden="true"></span>
+        <span class="watch-screw bl" aria-hidden="true"></span>
+        <span class="watch-screw br" aria-hidden="true"></span>
+
+        <div class="observatory-grid">
+          <!-- Left: Live Starfield Dome + 5-Ring Brass Horological Planisphere -->
+          <div class="planisphere-chamber">
+            <div class="planisphere-dome">
+              <canvas id="sgr-sky-canvas" width="460" height="460" aria-hidden="true"></canvas>
+
+              <svg viewBox="0 0 420 420" class="planisphere-svg" role="img" aria-label="Bản đồ thiên văn chòm sao Nhân Mã tương tác">
+                <defs>
+                  <linearGradient id="brass-bezel" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FBF2DD" stop-opacity="0.9" />
+                    <stop offset="45%" stop-color="#D6B372" stop-opacity="0.65" />
+                    <stop offset="100%" stop-color="#7A5B28" stop-opacity="0.85" />
+                  </linearGradient>
+                  <linearGradient id="archer-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#FFFDF5" />
+                    <stop offset="55%" stop-color="#F3DEB5" />
+                    <stop offset="100%" stop-color="#C89B4B" />
+                  </linearGradient>
+                  <radialGradient id="nebula-lagoon" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#FBF2DD" stop-opacity="0.34" />
+                    <stop offset="45%" stop-color="#D6B372" stop-opacity="0.14" />
+                    <stop offset="100%" stop-color="#D6B372" stop-opacity="0" />
+                  </radialGradient>
+                  <path id="ecliptic-text-path" d="M 210,210 m -172,0 a 172,172 0 1,1 344,0 a 172,172 0 1,1 -344,0" />
+                </defs>
+
+                <!-- Outer Stationary Horological Scale -->
+                <circle cx="210" cy="210" r="202" fill="none" stroke="url(#brass-bezel)" stroke-width="1.4" />
+                <circle cx="210" cy="210" r="194" fill="none" stroke="rgba(214,179,114,0.35)" stroke-width="4" stroke-dasharray="1.2 7.26" />
+                <circle cx="210" cy="210" r="186" fill="none" stroke="rgba(214,179,114,0.22)" stroke-width="0.9" />
+
+                <!-- Rotating Brass Ecliptic Ring -->
+                <g class="planisphere-ring-rot">
+                  <circle cx="210" cy="210" r="162" fill="none" stroke="rgba(243,222,181,0.26)" stroke-width="1" stroke-dasharray="3 6" />
+                  <text class="planisphere-ring-txt">
+                    <textPath href="#ecliptic-text-path" startOffset="0%">
+                      CONSTELLATION DU SAGITTAIRE &bull; 240°–270° ECLIPTIC &bull; ELEMENTUM IGNIS &bull; XXV NOVEMBRIS MMVIII &bull;
+                    </textPath>
+                  </text>
+                </g>
+
+                <!-- Celestial Declination & Meridian Grid -->
+                <circle cx="210" cy="210" r="128" fill="none" stroke="rgba(214,179,114,0.13)" stroke-width="0.8" />
+                <circle cx="210" cy="210" r="82" fill="none" stroke="rgba(214,179,114,0.1)" stroke-width="0.8" stroke-dasharray="2 5" />
+                <line x1="28" y1="210" x2="392" y2="210" stroke="rgba(214,179,114,0.1)" stroke-width="0.8" />
+                <line x1="210" y1="28" x2="210" y2="392" stroke="rgba(214,179,114,0.1)" stroke-width="0.8" />
+
+                <!-- Cardinal Degree Stamps -->
+                <text x="210" y="20" text-anchor="middle" class="dial-deg">0° N</text>
+                <text x="401" y="213" text-anchor="middle" class="dial-deg">90°</text>
+                <text x="210" y="407" text-anchor="middle" class="dial-deg">180° S</text>
+                <text x="19" y="213" text-anchor="middle" class="dial-deg">270°</text>
+
+                <!-- Galactic Center Nebula Glow off Alnasl Arrowhead -->
+                <circle cx="92" cy="222" r="54" fill="url(#nebula-lagoon)" />
+                <text x="92" y="268" text-anchor="middle" class="dial-nebula-lbl">GALACTIC CORE</text>
+
+                <!-- Custom Gold Vector Sagittarius Glyph Watermark (Zero OS Emoji) -->
+                <g transform="translate(296, 86) scale(0.9)" opacity="0.34" stroke="#D6B372" stroke-width="2" fill="none" stroke-linecap="round">
+                  <line x1="4" y1="28" x2="28" y2="4" />
+                  <polyline points="15,4 28,4 28,17" />
+                  <line x1="9" y1="15" x2="19" y2="25" />
+                </g>
+
+                <!-- Drawn Golden Centaur Bow & Taut Bowstring -->
+                <path
+                  d="M 196 86 Q 118 202 178 318"
+                  fill="none"
+                  stroke="url(#brass-bezel)"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                />
+                <polyline
+                  points="196,86 244,196 178,318"
+                  fill="none"
+                  stroke="rgba(243,222,181,0.34)"
+                  stroke-width="1.1"
+                  stroke-dasharray="3 4"
+                />
+
+                <!-- Sagittarius Teapot & Vane Constellation Skeleton -->
+                <polyline
+                  points="196,86 244,196 318,154 298,248 244,196"
+                  fill="none"
+                  stroke="rgba(214,179,114,0.52)"
+                  stroke-width="1.35"
+                />
+                <line x1="178" y1="318" x2="298" y2="248" stroke="rgba(214,179,114,0.38)" stroke-width="1.2" />
+                <line x1="162" y1="204" x2="244" y2="196" stroke="rgba(214,179,114,0.45)" stroke-width="1.2" />
+                <line x1="298" y1="248" x2="322" y2="314" stroke="rgba(214,179,114,0.34)" stroke-width="1.15" stroke-dasharray="3 3" />
+
+                <!-- Luminous Golden Arrow (Phi Sgr -> Kaus Media -> Alnasl) -->
+                <line x1="248" y1="196" x2="100" y2="220" stroke="url(#archer-gold)" stroke-width="2.3" class="sgr-arrow-shaft" />
+                <polygon points="88,222 107,212 103,220 109,227" fill="#FFFDF6" />
+
+                <!-- Animated Watchmaker Loupe Crosshair Reticle -->
+                <g id="sgr-target-reticle" class="sgr-reticle" style="transform: translate(100px, 220px)">
+                  <circle r="15" fill="none" stroke="#FBF2DD" stroke-width="1.1" stroke-dasharray="4 3" />
+                  <circle r="22" fill="none" stroke="rgba(214,179,114,0.45)" stroke-width="0.8" />
+                  <line x1="-27" y1="0" x2="-18" y2="0" stroke="#FBF2DD" stroke-width="1" />
+                  <line x1="18" y1="0" x2="27" y2="0" stroke="#FBF2DD" stroke-width="1" />
+                  <line x1="0" y1="-27" x2="0" y2="-18" stroke="#FBF2DD" stroke-width="1" />
+                  <line x1="0" y1="18" x2="0" y2="27" stroke="#FBF2DD" stroke-width="1" />
+                </g>
+
+                <!-- 8 Authentic Interactive Stars of Sagittarius -->
+                <circle class="star-node is-active" cx="100" cy="220" r="6.2"
+                  data-star="Alnasl" data-bayer="γ² Sagittarii" data-ra="18h 05m" data-dec="-30° 25'" data-mag="2.98"
+                  data-scores="99,96,93,97"
+                  data-desc="Mũi tên vàng hướng thẳng vào tâm Ngân Hà — biểu trưng cho khát vọng vươn xa, tầm nhìn sắc bén và tinh thần luôn tiến về phía trước của Gia Huy ở tuổi 19+." />
+
+                <circle class="star-node" cx="162" cy="204" r="5.6"
+                  data-star="Kaus Media" data-bayer="δ Sagittarii" data-ra="18h 20m" data-dec="-29° 49'" data-mag="2.70"
+                  data-scores="96,98,97,95"
+                  data-desc="Tâm điểm giữ chặt cánh cung Nhân Mã — sự điềm tĩnh, tập trung cao độ và bản lĩnh ngắm chuẩn mục tiêu: một khi đã quyết là làm tới cùng." />
+
+                <circle class="star-node" cx="178" cy="318" r="6.6"
+                  data-star="Kaus Australis" data-bayer="ε Sagittarii" data-ra="18h 24m" data-dec="-34° 23'" data-mag="1.79"
+                  data-scores="98,99,94,96"
+                  data-desc="Ngôi sao rực sáng nhất chòm Nhân Mã (cấp sáng 1.79) — nguồn năng lượng nhiệt huyết bền bỉ, tự tin tỏa sáng theo bản sắc riêng không trộn lẫn." />
+
+                <circle class="star-node" cx="196" cy="86" r="5.4"
+                  data-star="Kaus Borealis" data-bayer="λ Sagittarii" data-ra="18h 27m" data-dec="-25° 25'" data-mag="2.82"
+                  data-scores="97,94,98,95"
+                  data-desc="Đỉnh vòm cung phương Bắc — trực giác nhạy bén, đầu óc cởi mở và sự tinh tế chỉn chu trong cách nhìn nhận con người lẫn cuộc sống." />
+
+                <circle class="star-node" cx="244" cy="196" r="5.2"
+                  data-star="Phi Sagittarii" data-bayer="φ Sagittarii" data-ra="18h 45m" data-dec="-26° 59'" data-mag="3.17"
+                  data-scores="95,96,97,96"
+                  data-desc="Điểm tựa kéo căng dây cung — nội lực trầm ổn tích lũy từng ngày, sẵn sàng tạo nên cú bật mạnh mẽ cho những dự định lớn." />
+
+                <circle class="star-node" cx="318" cy="154" r="6.0"
+                  data-star="Nunki" data-bayer="σ Sagittarii" data-ra="18h 55m" data-dec="-26° 17'" data-mag="2.05"
+                  data-scores="99,97,92,96"
+                  data-desc="Ngôi sao xanh lam rực rỡ phương Đông — đại diện cho tự do, phóng khoáng, dám bước ra khỏi vùng an toàn để chinh phục những chân trời mới." />
+
+                <circle class="star-node" cx="298" cy="248" r="5.4"
+                  data-star="Ascella" data-bayer="ζ Sagittarii" data-ra="19h 02m" data-dec="-29° 52'" data-mag="2.59"
+                  data-scores="94,95,96,99"
+                  data-desc="Đôi cánh đồng hành — sự chân thành, trọng tình nghĩa và khí chất ấm áp khiến những người anh em bạn bè luôn tin tưởng quý mến." />
+
+                <circle class="star-node" cx="322" cy="314" r="5.2"
+                  data-star="Rukbat" data-bayer="α Sagittarii" data-ra="19h 23m" data-dec="-40° 36'" data-mag="3.97"
+                  data-scores="95,99,97,96"
+                  data-desc="Thế đứng vững chãi của người cung thủ — nền tảng kiên định giữa đất trời cao nguyên Buôn Ma Thuột, vững vàng trước mọi thử thách." />
+              </svg>
+            </div>
+
+            <div class="planisphere-telemetry mono">
+              <div class="tele-cell">
+                <span>RIGHT ASCENSION</span>
+                <strong id="sgr-ra">18h 05m</strong>
+              </div>
+              <div class="tele-cell">
+                <span>DECLINATION</span>
+                <strong id="sgr-dec">-30° 25'</strong>
+              </div>
+              <div class="tele-cell">
+                <span>MAGNITUDE</span>
+                <strong id="sgr-mag">2.98m</strong>
+              </div>
+            </div>
           </div>
 
-          <div class="topo-layout">
-            <div class="topo-copy">
-              <h3 class="dossier-title">Nhịp Sống <span class="serif-italic gold-text">Buôn Ma Thuột</span></h3>
-              <p class="card-desc">
-                Giữa độ cao 536 mét của phố núi cao nguyên, nơi nắng gió và hương cà phê bazan tạo nên nhịp điệu riêng — Gia Huy lớn lên với phong thái điềm đạm, sâu sắc nhưng luôn giữ ngọn lửa nhiệt huyết bền bỉ bên trong.
+          <!-- Right: Engraved Horological Star Dossier & Complication Gauges -->
+          <div class="observatory-console">
+            <div class="console-crest-row">
+              <div class="archer-crest-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <line x1="4" y1="20" x2="20" y2="4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <polyline points="11,4 20,4 20,13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="7" y1="12" x2="14" y2="19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+                <div>
+                  <span class="mono crest-kicker">CONSTELLATION DU SAGITTAIRE</span>
+                  <strong>Cung Nhân Mã &bull; 25 Tháng 11</strong>
+                </div>
+              </div>
+
+              <button id="sgr-autotour-btn" class="tour-pill mono active" type="button" aria-pressed="true">
+                <span class="tour-dot" aria-hidden="true"></span>
+                Tự Quét Sao
+              </button>
+            </div>
+
+            <!-- Sapphire Reading Window -->
+            <div class="star-sapphire-plate">
+              <div class="sapphire-meta mono">
+                <span id="sgr-bayer">SAO 01 / 08 &bull; γ² SAGITTARII</span>
+                <span>ELEMENT: LỬA &bull; SAO MỘC</span>
+              </div>
+              <h3 id="sgr-star-heading" class="sapphire-star-title">Alnasl &mdash; <span class="serif-italic gold-text">Đỉnh Mũi Tên Ngân Hà</span></h3>
+              <p id="star-readout-desc" class="sapphire-star-desc">
+                Mũi tên vàng hướng thẳng vào tâm Ngân Hà — biểu trưng cho khát vọng vươn xa, tầm nhìn sắc bén và tinh thần luôn tiến về phía trước của Gia Huy ở tuổi 19+.
               </p>
-              <div class="topo-stats">
-                <div>
-                  <span class="mono stat-lbl">LATITUDE</span>
-                  <strong class="mono stat-val">12°40'N</strong>
+            </div>
+
+            <!-- 4 Horological Power-Reserve Trait Gauges -->
+            <div class="complication-gauges" aria-label="Chỉ số khí chất Nhân Mã">
+              <div class="gauge-item">
+                <div class="gauge-top mono">
+                  <span>KHÁT VỌNG &amp; TẦM NHÌN</span>
+                  <strong id="val-vision">99%</strong>
                 </div>
-                <div>
-                  <span class="mono stat-lbl">LONGITUDE</span>
-                  <strong class="mono stat-val">108°02'E</strong>
+                <div class="gauge-bar"><span id="bar-vision" style="width: 99%"></span></div>
+              </div>
+
+              <div class="gauge-item">
+                <div class="gauge-top mono">
+                  <span>BẢN LĨNH ĐỘC LẬP</span>
+                  <strong id="val-courage">96%</strong>
                 </div>
-                <div>
-                  <span class="mono stat-lbl">ORIGIN</span>
-                  <strong class="mono stat-val">BAN MÊ</strong>
+                <div class="gauge-bar"><span id="bar-courage" style="width: 96%"></span></div>
+              </div>
+
+              <div class="gauge-item">
+                <div class="gauge-top mono">
+                  <span>ĐIỀM TĨNH &amp; CHIỀU SÂU</span>
+                  <strong id="val-calm">93%</strong>
                 </div>
+                <div class="gauge-bar"><span id="bar-calm" style="width: 93%"></span></div>
+              </div>
+
+              <div class="gauge-item">
+                <div class="gauge-top mono">
+                  <span>NGHĨA KHÍ &amp; CHÂN THÀNH</span>
+                  <strong id="val-loyalty">97%</strong>
+                </div>
+                <div class="gauge-bar"><span id="bar-loyalty" style="width: 97%"></span></div>
               </div>
             </div>
 
-            <div class="topo-radar" aria-hidden="true">
-              <svg viewBox="0 0 280 280" class="topo-svg">
-                <defs>
-                  <radialGradient id="topo-glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#D6B372" stop-opacity="0.28" />
-                    <stop offset="100%" stop-color="#D6B372" stop-opacity="0" />
-                  </radialGradient>
-                </defs>
-                <circle cx="140" cy="140" r="126" fill="url(#topo-glow)" />
-                <!-- Organic topographic contour rings -->
-                <path d="M140,26 C204,26 254,74 252,138 C250,204 198,252 136,252 C74,252 28,200 30,136 C32,74 78,26 140,26 Z" fill="none" stroke="rgba(214,179,114,0.22)" stroke-width="1" />
-                <path d="M142,48 C192,50 232,88 228,140 C224,192 184,228 134,226 C84,224 52,184 54,136 C56,88 94,46 142,48 Z" fill="none" stroke="rgba(214,179,114,0.34)" stroke-width="1" stroke-dasharray="4 5" />
-                <path d="M140,76 C176,76 204,104 202,140 C200,176 170,202 136,200 C102,198 78,172 80,138 C82,104 106,76 140,76 Z" fill="none" stroke="rgba(243,222,181,0.42)" stroke-width="1" />
-                <circle cx="140" cy="140" r="38" fill="none" stroke="rgba(214,179,114,0.3)" stroke-width="0.9" />
-                <line x1="140" y1="10" x2="140" y2="270" stroke="rgba(214,179,114,0.16)" stroke-width="0.8" />
-                <line x1="10" y1="140" x2="270" y2="140" stroke="rgba(214,179,114,0.16)" stroke-width="0.8" />
-                <text x="140" y="20" text-anchor="middle" class="compass-txt">N</text>
-                <text x="264" y="144" text-anchor="middle" class="compass-txt">E</text>
-                <text x="140" y="272" text-anchor="middle" class="compass-txt">S</text>
-                <text x="16" y="144" text-anchor="middle" class="compass-txt">W</text>
-                <!-- Pulsing BMT beacon -->
-                <circle cx="140" cy="140" r="14" fill="none" stroke="#F3DEB5" stroke-width="1.2" class="beacon-pulse" />
-                <circle cx="140" cy="140" r="5" fill="#FBF2DD" />
-              </svg>
+            <!-- 8 Precision Brass Index Selector Buttons (4x2 Grid) -->
+            <div class="sgr-selector-grid" role="tablist" aria-label="Chọn 8 ngôi sao chòm Nhân Mã">
+              <button class="sgr-pill active" type="button" data-star-idx="0"><span>I</span>Alnasl</button>
+              <button class="sgr-pill" type="button" data-star-idx="1"><span>II</span>Kaus Media</button>
+              <button class="sgr-pill" type="button" data-star-idx="2"><span>III</span>Australis</button>
+              <button class="sgr-pill" type="button" data-star-idx="3"><span>IV</span>Borealis</button>
+              <button class="sgr-pill" type="button" data-star-idx="4"><span>V</span>Phi Sgr</button>
+              <button class="sgr-pill" type="button" data-star-idx="5"><span>VI</span>Nunki</button>
+              <button class="sgr-pill" type="button" data-star-idx="6"><span>VII</span>Ascella</button>
+              <button class="sgr-pill" type="button" data-star-idx="7"><span>VIII</span>Rukbat</button>
             </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ARCHITECTURAL TRIPTYCH: 3 BALANCED HAUTE-HORLOGERIE MODULES -->
+      <div class="horology-triptych">
+        <!-- Module I: Tourbillon Milestone 19+ -->
+        <article class="triptych-card reveal" data-delay="60" data-spotlight>
+          <span class="watch-screw tl" aria-hidden="true"></span>
+          <span class="watch-screw tr" aria-hidden="true"></span>
+          <div class="dossier-head">
+            <span class="card-kicker mono">TOURBILLON MILESTONE</span>
+            <span class="card-chip mono">CHAPITRE XIX</span>
+          </div>
+
+          <div class="tourbillon-emblem">
+            <svg viewBox="0 0 220 220" class="tourbillon-gear-svg" aria-hidden="true">
+              <g class="gear-spin-slow">
+                <circle cx="110" cy="110" r="96" fill="none" stroke="rgba(214,179,114,0.28)" stroke-width="6" stroke-dasharray="4 8.5" />
+                <circle cx="110" cy="110" r="84" fill="none" stroke="rgba(243,222,181,0.22)" stroke-width="1" />
+                <line x1="110" y1="26" x2="110" y2="194" stroke="rgba(214,179,114,0.14)" stroke-width="1" />
+                <line x1="26" y1="110" x2="194" y2="110" stroke="rgba(214,179,114,0.14)" stroke-width="1" />
+              </g>
+              <circle cx="110" cy="110" r="66" fill="rgba(14,11,8,0.88)" stroke="rgba(243,222,181,0.4)" stroke-width="1.2" />
+            </svg>
+            <div class="tourbillon-num-center">
+              <span class="mono roman-stamp">MMVIII &mdash; MMXXVI</span>
+              <div class="milestone-num-wrap">
+                <span id="milestone-num" class="milestone-num" data-target="19">19</span><span class="milestone-plus">+</span>
+              </div>
+              <span class="mono roman-stamp">ÉDITION LIMITÉE</span>
+            </div>
+          </div>
+
+          <p class="triptych-desc">
+            Ngưỡng cửa 19+ — độ chín vừa vặn để định hình bản lĩnh riêng, tự tin bứt tốc tới những mục tiêu lớn.
+          </p>
+
+          <div class="pillar-medallions mono">
+            <span>I &middot; SỨC KHỎE</span>
+            <span>II &middot; BẢN LĨNH</span>
+            <span>III &middot; TRẢI NGHIỆM</span>
+            <span>IV &middot; RỰC RỠ</span>
           </div>
         </article>
 
-        <!-- Panel B: Celestial Sagittarius Archer Astrolabe (5 cols) -->
-        <article class="dossier-card dossier-span-5 reveal" data-delay="70" data-spotlight>
+        <!-- Module II: Buôn Ma Thuột 536M Altimeter & Relief -->
+        <article class="triptych-card reveal" data-delay="120" data-spotlight>
+          <span class="watch-screw tl" aria-hidden="true"></span>
+          <span class="watch-screw tr" aria-hidden="true"></span>
           <div class="dossier-head">
-            <span class="card-kicker mono">CELESTIAL ARCHER ASTROLABE</span>
-            <span class="card-chip mono">&#9808; NHÂN MÃ &bull; 25.11</span>
+            <span class="card-kicker mono">HAUT-PLATEAU ALTIMETER</span>
+            <span class="card-chip mono">ALT 536M</span>
           </div>
 
-          <div class="astrolabe-wrap">
-            <svg viewBox="0 0 280 212" class="astrolabe-svg" aria-label="Bản đồ chòm sao Nhân Mã tương tác">
+          <h3 class="triptych-title">Cao Nguyên <span class="serif-italic gold-text">Buôn Ma Thuột</span></h3>
+
+          <div class="altimeter-box" aria-hidden="true">
+            <svg viewBox="0 0 320 156" class="altimeter-svg">
               <defs>
-                <radialGradient id="galactic-core" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#FBF2DD" stop-opacity="0.34" />
-                  <stop offset="48%" stop-color="#D6B372" stop-opacity="0.14" />
-                  <stop offset="100%" stop-color="#D6B372" stop-opacity="0" />
-                </radialGradient>
-                <linearGradient id="archer-bow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#FBF2DD" stop-opacity="0.88" />
-                  <stop offset="55%" stop-color="#D6B372" stop-opacity="0.65" />
-                  <stop offset="100%" stop-color="#8A6932" stop-opacity="0.4" />
+                <linearGradient id="bmt-fill" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#D6B372" stop-opacity="0.34" />
+                  <stop offset="100%" stop-color="#D6B372" stop-opacity="0.0" />
                 </linearGradient>
-                <path id="sgr-ring-path" d="M 145,106 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0" />
               </defs>
-
-              <!-- Galactic Center nebula glow off Sagittarius's arrow tip -->
-              <circle cx="54" cy="126" r="42" fill="url(#galactic-core)" />
-              <circle cx="46" cy="118" r="1.2" fill="#FBF2DD" opacity="0.7" />
-              <circle cx="62" cy="138" r="1.4" fill="#D6B372" opacity="0.65" />
-              <circle cx="40" cy="134" r="1" fill="#F3DEB5" opacity="0.55" />
-
-              <!-- Outer Horological Rotating Bezel -->
-              <g class="sgr-bezel">
-                <circle cx="145" cy="106" r="96" fill="none" stroke="rgba(214,179,114,0.28)" stroke-width="1" stroke-dasharray="1.5 5.5" />
-                <text class="sgr-orbit-label">
-                  <textPath href="#sgr-ring-path" startOffset="4%">
-                    SAGITTARIUS &bull; ELEMENT FIRE &bull; JUPITER &bull; 25 NOV &bull;
-                  </textPath>
-                </text>
-              </g>
-              <circle cx="145" cy="106" r="78" fill="none" stroke="rgba(214,179,114,0.14)" stroke-width="0.9" />
-              <line x1="36" y1="106" x2="254" y2="106" stroke="rgba(214,179,114,0.09)" stroke-dasharray="3 5" />
-
-              <!-- Sculpted Golden Archer's Bow Curve & Drawn Bowstring -->
-              <path
-                d="M 132 42 Q 76 106 118 172"
-                fill="none"
-                stroke="url(#archer-bow-grad)"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <polyline
-                points="132,42 166,106 118,172"
-                fill="none"
-                stroke="rgba(243,222,181,0.28)"
-                stroke-width="1"
-                stroke-dasharray="2 3"
-              />
-
-              <!-- Sagittarius Teapot / Vane Constellation Lines -->
-              <polyline
-                points="132,42 166,106 218,78 204,142 166,106"
-                fill="none"
-                stroke="rgba(214,179,114,0.42)"
-                stroke-width="1.2"
-              />
-              <line x1="118" y1="172" x2="204" y2="142" stroke="rgba(214,179,114,0.3)" stroke-width="1.1" />
-              <line x1="108" y1="112" x2="166" y2="106" stroke="rgba(214,179,114,0.34)" stroke-width="1.1" />
-
-              <!-- Luminous Golden Arrow Shaft & Arrowhead (Phi Sgr -> Kaus Media -> Alnasl) -->
-              <line
-                x1="166"
-                y1="106"
-                x2="58"
-                y2="124"
-                stroke="#F3DEB5"
-                stroke-width="1.7"
-                class="sgr-arrow-shaft"
-              />
-              <polygon points="50,125 65,117 62,124 67,130" fill="#FBF2DD" />
-
-              <!-- Subtle Sagittarius Glyph Watermark -->
-              <text x="228" y="42" text-anchor="middle" class="sgr-glyph">&#9808;</text>
-
-              <!-- 7 Authentic Interactive Stars of Sagittarius -->
-              <circle class="star-node is-active" cx="58" cy="124" r="5.5" data-star="Alnasl (γ² Sgr)" data-desc="Mũi tên vàng hướng tâm Ngân Hà — khát vọng vươn xa &amp; tầm nhìn lớn tuổi 19+" />
-              <circle class="star-node" cx="108" cy="112" r="5.0" data-star="Kaus Media (δ Sgr)" data-desc="Tâm cánh cung Nhân Mã — điềm tĩnh ngắm chuẩn mục tiêu, đã bắn là trúng đích" />
-              <circle class="star-node" cx="118" cy="172" r="5.8" data-star="Kaus Australis (ε Sgr)" data-desc="Ngôi sao sáng nhất Nhân Mã — ngọn lửa nhiệt huyết bền bỉ, luôn tiến về phía trước" />
-              <circle class="star-node" cx="132" cy="42" r="4.8" data-star="Kaus Borealis (λ Sgr)" data-desc="Đỉnh vòm cung phương Bắc — trực giác nhạy bén &amp; tư duy cởi mở không giới hạn" />
-              <circle class="star-node" cx="166" cy="106" r="4.8" data-star="Phi Sgr (φ Sgr)" data-desc="Điểm kéo dây cung — nội lực vững vàng, tích lũy sức bật cho những cú bứt phá" />
-              <circle class="star-node" cx="218" cy="78" r="5.3" data-star="Nunki (σ Sgr)" data-desc="Đôi cánh phương Đông — tinh thần tự do, phóng khoáng &amp; bản lĩnh độc lập" />
-              <circle class="star-node" cx="204" cy="142" r="4.8" data-star="Ascella (ζ Sgr)" data-desc="Điểm tựa phiêu lưu — chân thành, trọng nghĩa khí với những người anh em tin cậy" />
+              <!-- Grid lines -->
+              <line x1="16" y1="34" x2="304" y2="34" stroke="rgba(214,179,114,0.12)" stroke-dasharray="2 4" />
+              <line x1="16" y1="78" x2="304" y2="78" stroke="rgba(214,179,114,0.16)" stroke-dasharray="2 4" />
+              <line x1="16" y1="122" x2="304" y2="122" stroke="rgba(214,179,114,0.2)" />
+              <!-- Basalt Highland Elevation Relief Curve -->
+              <path d="M 16,122 C 58,118 82,92 118,86 C 148,80 168,42 198,42 C 232,42 258,72 304,64 L 304,122 Z" fill="url(#bmt-fill)" />
+              <path d="M 16,122 C 58,118 82,92 118,86 C 148,80 168,42 198,42 C 232,42 258,72 304,64" fill="none" stroke="#F3DEB5" stroke-width="1.8" />
+              <!-- Summit Beacon at 536m -->
+              <line x1="198" y1="42" x2="198" y2="122" stroke="rgba(243,222,181,0.4)" stroke-dasharray="2 3" />
+              <circle cx="198" cy="42" r="11" fill="none" stroke="#F3DEB5" stroke-width="1.1" class="bmt-summit-pulse" />
+              <circle cx="198" cy="42" r="4" fill="#FFFDF6" />
+              <text x="198" y="25" text-anchor="middle" class="dial-deg">BUÔN MA THUỘT &bull; 536M</text>
+              <text x="24" y="140" class="dial-nebula-lbl">BASALT PLATEAU</text>
+              <text x="296" y="140" text-anchor="end" class="dial-nebula-lbl">ĐẮK LẮK</text>
             </svg>
           </div>
 
-          <div class="sgr-star-pills" role="tablist" aria-label="Chọn ngôi sao Nhân Mã">
-            <button class="sgr-pill active" type="button" data-star-idx="0">Alnasl</button>
-            <button class="sgr-pill" type="button" data-star-idx="1">Kaus Media</button>
-            <button class="sgr-pill" type="button" data-star-idx="2">Australis</button>
-            <button class="sgr-pill" type="button" data-star-idx="3">Borealis</button>
-            <button class="sgr-pill" type="button" data-star-idx="4">Phi Sgr</button>
-            <button class="sgr-pill" type="button" data-star-idx="5">Nunki</button>
-            <button class="sgr-pill" type="button" data-star-idx="6">Ascella</button>
-          </div>
+          <p class="triptych-desc">
+            Nắng gió đại ngàn và chiều sâu đất bazan hun đúc nên một Gia Huy điềm đạm, lịch thiệp nhưng luôn cháy bền bỉ với đam mê.
+          </p>
 
-          <div id="star-readout" class="star-readout">
-            <strong class="mono">ALNASL (Γ² SGR) &bull; </strong>
-            <span>Mũi tên vàng hướng tâm Ngân Hà — khát vọng vươn xa &amp; tầm nhìn lớn tuổi 19+</span>
+          <div class="bmt-coords-strip mono">
+            <div><span>VĨ ĐỘ</span><strong>12°40'N</strong></div>
+            <div><span>KINH ĐỘ</span><strong>108°02'E</strong></div>
+            <div><span>MÚI GIỜ</span><strong>UTC+07</strong></div>
           </div>
         </article>
 
-        <!-- Panel C: Sculpted 19+ Atelier Monolith (5 cols) -->
-        <article class="dossier-card dossier-span-5 dossier-monolith reveal" data-delay="120" data-spotlight>
-          <div class="monolith-inset">
-            <div class="dossier-head">
-              <span class="card-kicker mono">ATELIER MILESTONE</span>
-              <span class="card-chip mono">CHAPITRE XIX</span>
-            </div>
-            <div class="milestone-num-wrap">
-              <span id="milestone-num" class="milestone-num" data-target="19">19</span><span class="milestone-plus">+</span>
-            </div>
-            <p class="card-desc">
-              Ngưỡng cửa 19+ — đủ chín chắn để chọn lọc những giá trị thật sự xứng đáng, đủ sức bật để vươn tới mọi chân trời mới.
-            </p>
-          </div>
-        </article>
+        <!-- Module III: 18K Gold Caseback Specification Plate -->
+        <article class="triptych-card caseback-card reveal" data-delay="180" data-spotlight>
+          <span class="watch-screw tl" aria-hidden="true"></span>
+          <span class="watch-screw tr" aria-hidden="true"></span>
+          <span class="watch-screw bl" aria-hidden="true"></span>
+          <span class="watch-screw br" aria-hidden="true"></span>
 
-        <!-- Panel D: Swiss Chronograph Specification Ledger (7 cols) -->
-        <article class="dossier-card dossier-span-7 reveal" data-delay="170" data-spotlight>
           <div class="dossier-head">
-            <span class="card-kicker mono">CHRONOGRAPH SPECIFICATION</span>
+            <span class="card-kicker mono">PLAQUE DE MANUFACTURE</span>
             <span class="card-chip mono">REF. GH-2511</span>
           </div>
 
           <dl class="spec-ledger">
             <div class="spec-row">
-              <dt class="mono">DANH XƯNG</dt>
-              <dd>Gia Huy</dd>
+              <dt class="mono">CHỦ NHÂN</dt>
+              <dd class="serif-spec">Gia Huy</dd>
             </div>
             <div class="spec-row">
-              <dt class="mono">NGÀY SINH</dt>
-              <dd class="mono">25 &middot; 11 &middot; 2008</dd>
+              <dt class="mono">SINH NHẬT</dt>
+              <dd class="mono gold-val">25 &middot; 11 &middot; 2008</dd>
             </div>
             <div class="spec-row">
-              <dt class="mono">CUNG HOÀNG ĐẠO</dt>
-              <dd>Nhân Mã (Sagittarius &#9808;)</dd>
+              <dt class="mono">CHÒM SAO</dt>
+              <dd class="inline-icon-dd">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <line x1="4" y1="20" x2="20" y2="4" stroke="#F3DEB5" stroke-width="2" stroke-linecap="round"/>
+                  <polyline points="11,4 20,4 20,13" stroke="#F3DEB5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="7" y1="12" x2="14" y2="19" stroke="#F3DEB5" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Nhân Mã (Sagittarius)</span>
+              </dd>
             </div>
             <div class="spec-row">
-              <dt class="mono">TỌA ĐỘ HIỆN TẠI</dt>
+              <dt class="mono">NGUYÊN TỐ</dt>
+              <dd>Lửa &middot; Sao Mộc (Jupiter)</dd>
+            </div>
+            <div class="spec-row">
+              <dt class="mono">TỌA ĐỘ</dt>
               <dd>Buôn Ma Thuột, Đắk Lắk</dd>
             </div>
             <div class="spec-row">
               <dt class="mono">KẾT NỐI</dt>
-              <dd class="mono">3K+ Bạn Bè &bull; @ghuy_0301 &bull; @phanhgiahuy8</dd>
+              <dd class="mono">3K+ Bạn Bè</dd>
             </div>
             <div class="spec-row">
-              <dt class="mono">BỐN TRỤ CỘT XIX</dt>
-              <dd>Sức Khỏe &middot; Bản Lĩnh &middot; Trải Nghiệm &middot; Rực Rỡ</dd>
+              <dt class="mono">ĐỊNH DANH</dt>
+              <dd class="mono">@ghuy_0301 &bull; @phanhgiahuy8</dd>
             </div>
           </dl>
+
+          <div class="hallmark-bar mono">
+            <span>POINÇON MAISON 25·11</span>
+            <span>CERTIFIED XIX</span>
+          </div>
         </article>
       </div>
     </section>

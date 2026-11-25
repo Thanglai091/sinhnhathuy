@@ -541,7 +541,7 @@ import * as THREE from './vendor/three/three.module.js';
         diffMs = Math.max(0, now.getTime() - birthMs);
         if (captionEl) {
           captionEl.textContent = isToday
-            ? '🎂 Hôm nay là Sinh Nhật 25.11 — Hành trình từ 25.11.2008'
+            ? '✦ Hôm nay là Sinh Nhật 25.11 — Hành trình từ 25.11.2008'
             : 'Tổng thời gian rực rỡ kể từ 25.11.2008';
         }
       } else {
@@ -549,7 +549,7 @@ import * as THREE from './vendor/three/three.module.js';
         diffMs = Math.max(0, target.getTime() - now.getTime());
         if (captionEl) {
           captionEl.textContent = isToday
-            ? `🎉 Chúc mừng sinh nhật 25.11 hôm nay! Kỳ tiếp: 25.11.${target.getFullYear()}`
+            ? `✦ Mừng sinh nhật 25.11 hôm nay • Kỳ tiếp: 25.11.${target.getFullYear()}`
             : `Hướng tới cột mốc 25.11.${target.getFullYear()}`;
         }
       }
@@ -605,33 +605,191 @@ import * as THREE from './vendor/three/three.module.js';
       });
     });
 
-    const readout = $('#star-readout');
+    // Live Starfield & Milky Way Dome Canvas inside Sagittarius Planisphere
+    const skyCanvas = $('#sgr-sky-canvas');
+    let triggerMeteor = () => {};
+    if (skyCanvas) {
+      const sCtx = skyCanvas.getContext('2d');
+      const W = skyCanvas.width;
+      const H = skyCanvas.height;
+      const bgStars = Array.from({ length: 145 }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: 0.4 + Math.random() * 1.45,
+        a: 0.16 + Math.random() * 0.65,
+        sp: 0.001 + Math.random() * 0.003,
+        ph: Math.random() * Math.PI * 2,
+        warm: Math.random() > 0.45
+      }));
+      const meteors = [];
+
+      triggerMeteor = () => {
+        meteors.push({
+          x: W * (0.65 + Math.random() * 0.25),
+          y: H * (0.12 + Math.random() * 0.28),
+          vx: -(4.2 + Math.random() * 2.4),
+          vy: 2.1 + Math.random() * 1.6,
+          life: 1.0
+        });
+      };
+
+      function renderSky(t) {
+        sCtx.clearRect(0, 0, W, H);
+
+        // Diagonal golden Milky Way band toward Galactic Center
+        sCtx.save();
+        sCtx.translate(W * 0.36, H * 0.52);
+        sCtx.rotate(-0.58);
+        const mw = sCtx.createRadialGradient(0, 0, 10, 0, 0, 210);
+        mw.addColorStop(0, 'rgba(243, 222, 181, 0.15)');
+        mw.addColorStop(0.5, 'rgba(214, 179, 114, 0.06)');
+        mw.addColorStop(1, 'rgba(8, 7, 6, 0)');
+        sCtx.fillStyle = mw;
+        sCtx.scale(1.35, 0.58);
+        sCtx.beginPath();
+        sCtx.arc(0, 0, 210, 0, Math.PI * 2);
+        sCtx.fill();
+        sCtx.restore();
+
+        for (const st of bgStars) {
+          const tw = st.a * (0.62 + 0.38 * Math.sin(t * st.sp + st.ph));
+          sCtx.fillStyle = st.warm
+            ? `rgba(251, 242, 221, ${tw.toFixed(3)})`
+            : `rgba(214, 224, 245, ${(tw * 0.8).toFixed(3)})`;
+          sCtx.beginPath();
+          sCtx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
+          sCtx.fill();
+        }
+
+        for (let i = meteors.length - 1; i >= 0; i--) {
+          const m = meteors[i];
+          m.x += m.vx;
+          m.y += m.vy;
+          m.life -= 0.032;
+          if (m.life <= 0) {
+            meteors.splice(i, 1);
+            continue;
+          }
+          const grad = sCtx.createLinearGradient(m.x, m.y, m.x - m.vx * 9, m.y - m.vy * 9);
+          grad.addColorStop(0, `rgba(255, 250, 232, ${m.life.toFixed(2)})`);
+          grad.addColorStop(1, 'rgba(214, 179, 114, 0)');
+          sCtx.strokeStyle = grad;
+          sCtx.lineWidth = 1.6;
+          sCtx.beginPath();
+          sCtx.moveTo(m.x, m.y);
+          sCtx.lineTo(m.x - m.vx * 9, m.y - m.vy * 9);
+          sCtx.stroke();
+        }
+
+        requestAnimationFrame(renderSky);
+      }
+      requestAnimationFrame(renderSky);
+    }
+
     const stars = $$('.star-node');
     const pills = $$('.sgr-pill');
+    const reticle = $('#sgr-target-reticle');
+    const raEl = $('#sgr-ra');
+    const decEl = $('#sgr-dec');
+    const magEl = $('#sgr-mag');
+    const bayerEl = $('#sgr-bayer');
+    const headingEl = $('#sgr-star-heading');
+    const descEl = $('#star-readout-desc');
+    const tourBtn = $('#sgr-autotour-btn');
 
-    function activateIndex(idx) {
+    const starSubtitles = [
+      'Đỉnh Mũi Tên Ngân Hà',
+      'Tâm Điểm Cánh Cung',
+      'Ngôi Sao Sáng Nhất Nhân Mã',
+      'Đỉnh Vòm Cung Phương Bắc',
+      'Điểm Tựa Dây Cung',
+      'Đôi Cánh Tự Do Phương Đông',
+      'Khí Chất Trọng Nghĩa Khí',
+      'Thế Đứng Vững Chãi'
+    ];
+
+    let currentIdx = 0;
+    let autoTour = true;
+    let tourTimer = null;
+
+    function setGauge(idBar, idVal, num) {
+      const b = $(idBar);
+      const v = $(idVal);
+      if (b) b.style.width = `${num}%`;
+      if (v) v.textContent = `${num}%`;
+    }
+
+    function activateIndex(idx, withMeteor = false) {
       const node = stars[idx];
       if (!node) return;
+      currentIdx = idx;
       stars.forEach((s, i) => s.classList.toggle('is-active', i === idx));
       pills.forEach((p, i) => p.classList.toggle('active', i === idx));
-      if (readout) {
-        readout.innerHTML = '';
-        const title = document.createElement('strong');
-        title.className = 'mono';
-        title.textContent = `${(node.dataset.star || '').toUpperCase()} • `;
-        const desc = document.createElement('span');
-        desc.textContent = node.dataset.desc || '';
-        readout.append(title, desc);
+
+      const cx = node.getAttribute('cx') || '100';
+      const cy = node.getAttribute('cy') || '220';
+      if (reticle) reticle.style.transform = `translate(${cx}px, ${cy}px)`;
+
+      if (raEl) raEl.textContent = node.dataset.ra || '';
+      if (decEl) decEl.textContent = node.dataset.dec || '';
+      if (magEl) magEl.textContent = `${node.dataset.mag || ''}m`;
+      if (bayerEl) {
+        bayerEl.textContent = `SAO ${String(idx + 1).padStart(2, '0')} / 0${stars.length} • ${(node.dataset.bayer || '').toUpperCase()}`;
       }
+      if (headingEl) {
+        headingEl.innerHTML = '';
+        headingEl.append(document.createTextNode(`${node.dataset.star || ''} — `));
+        const span = document.createElement('span');
+        span.className = 'serif-italic gold-text';
+        span.textContent = starSubtitles[idx] || '';
+        headingEl.appendChild(span);
+      }
+      if (descEl) descEl.textContent = node.dataset.desc || '';
+
+      const scores = (node.dataset.scores || '96,96,95,97').split(',').map(Number);
+      setGauge('#bar-vision', '#val-vision', scores[0] || 96);
+      setGauge('#bar-courage', '#val-courage', scores[1] || 96);
+      setGauge('#bar-calm', '#val-calm', scores[2] || 95);
+      setGauge('#bar-loyalty', '#val-loyalty', scores[3] || 97);
+
+      if (withMeteor) triggerMeteor();
+    }
+
+    function restartTour() {
+      clearInterval(tourTimer);
+      if (!autoTour) return;
+      tourTimer = setInterval(() => {
+        activateIndex((currentIdx + 1) % stars.length, true);
+      }, 4400);
     }
 
     stars.forEach((node, idx) => {
-      node.addEventListener('mouseenter', () => activateIndex(idx));
-      node.addEventListener('click', () => activateIndex(idx));
+      node.addEventListener('mouseenter', () => {
+        activateIndex(idx, false);
+        restartTour();
+      });
+      node.addEventListener('click', () => {
+        activateIndex(idx, true);
+        restartTour();
+      });
     });
+
     pills.forEach((pill, idx) => {
-      pill.addEventListener('click', () => activateIndex(idx));
+      pill.addEventListener('click', () => {
+        activateIndex(idx, true);
+        restartTour();
+      });
     });
+
+    tourBtn?.addEventListener('click', () => {
+      autoTour = !autoTour;
+      tourBtn.classList.toggle('active', autoTour);
+      tourBtn.setAttribute('aria-pressed', String(autoTour));
+      restartTour();
+    });
+
+    activateIndex(0, false);
+    restartTour();
   }
 
   /* =========================================================
